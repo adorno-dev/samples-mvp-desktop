@@ -7,6 +7,6 @@
         void Delete(int id);
 
         IEnumerable<Actor> GetAll();
-        IEnumerable<Actor> GetByValue();
+        IEnumerable<Actor> GetByValue(string value);
     }
 }
