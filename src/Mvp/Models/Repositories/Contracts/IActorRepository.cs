@@ -1,4 +1,4 @@
-﻿namespace Mvp.Models.Repositories
+﻿namespace Mvp.Models.Repositories.Contracts
 {
     public interface IActorRepository
     {

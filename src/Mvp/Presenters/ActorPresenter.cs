@@ -1,5 +1,5 @@
 using Mvp.Models;
-using Mvp.Models.Repositories;
+using Mvp.Models.Repositories.Contracts;
 using Mvp.Views;
 
 namespace Mvp.Presenters
@@ -10,7 +10,7 @@ namespace Mvp.Presenters
         private IActorView view;
         private IActorRepository repository;
         private BindingSource actorsBindingSource;
-        private IEnumerable<Actor> actorList;
+        private IEnumerable<Actor>? actorList;
         #endregion
 
         #region + Private Methods
@@ -46,7 +46,7 @@ namespace Mvp.Presenters
             actorList = (emptyValue == false) ?
                 repository.GetByValue(this.view.SearchValue) :
                 repository.GetAll();
-                
+
             actorsBindingSource.DataSource = actorList;
         }
         private void LoadAllActorList()

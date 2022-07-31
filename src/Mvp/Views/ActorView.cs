@@ -2,7 +2,7 @@
 {
     public partial class ActorView : Form, IActorView
     {
-        private string searchValue;
+        private string? searchValue;
         private string message;
         private bool isEditing;
         private bool isSuccessfully;
@@ -13,52 +13,54 @@
             AssociateAndRaiseViewEvents();
 
             tabActors.TabPages.Remove(tabActorDetail);
+            actorCloseButton.Click += delegate { this.Close(); };
         }
 
         private void AssociateAndRaiseViewEvents()
         {
             ActorSearchButton.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
-            ActorSearchTextbox.KeyDown += (s, e) => {
+            ActorSearchTextbox.KeyDown += (s, e) =>
+            {
                 if (e.KeyCode == Keys.Enter)
                     SearchEvent?.Invoke(this, EventArgs.Empty);
             };
         }
 
-        public string Id 
-        { 
-            get => ActorIdTextbox.Text; 
+        public string Id
+        {
+            get => ActorIdTextbox.Text;
             set => ActorIdTextbox.Text = value;
-         }
-        public string Country 
-        { 
-            get => ActorCountryTextbox.Text; 
+        }
+        public string Country
+        {
+            get => ActorCountryTextbox.Text;
             set => ActorCountryTextbox.Text = value;
-         }
-        public string Language 
-        { 
-            get => ActorLanguageTextbox.Text; 
+        }
+        public string Language
+        {
+            get => ActorLanguageTextbox.Text;
             set => ActorLanguageTextbox.Text = value;
-         }
-        public string SearchValue 
-        { 
-            get => ActorSearchTextbox.Text; 
+        }
+        public string SearchValue
+        {
+            get => ActorSearchTextbox.Text;
             set => ActorSearchTextbox.Text = value;
-         }
-        public string Message 
-        { 
-            get => message; 
+        }
+        public string Message
+        {
+            get => message;
             set => message = value;
-         }
-        public bool IsEditing 
-        { 
-            get => isEditing; 
+        }
+        public bool IsEditing
+        {
+            get => isEditing;
             set => isEditing = value;
-         }
-        public bool IsSuccessfully 
-        { 
-            get => isSuccessfully; 
+        }
+        public bool IsSuccessfully
+        {
+            get => isSuccessfully;
             set => isSuccessfully = value;
-         }
+        }
 
         public event EventHandler SearchEvent;
         public event EventHandler AddNewActor;
@@ -70,6 +72,28 @@
         public void SetActorListBindingSource(BindingSource actorList)
         {
             ActorGridView.DataSource = actorList;
+        }
+
+        // Singleton
+        private static ActorView? instance;
+
+        public static ActorView GetInstance(Form parentContainer)
+        {
+            if (instance is null || instance.IsDisposed)
+            {
+                instance = new ActorView();
+                instance.MdiParent = parentContainer;
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                    instance.WindowState = FormWindowState.Normal;
+                instance.BringToFront();
+            }
+
+            return instance;
         }
     }
 }

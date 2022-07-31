@@ -30,6 +30,7 @@
         {
             this.ActorTitleLabel = new System.Windows.Forms.Label();
             this.panelActors = new System.Windows.Forms.Panel();
+            this.actorCloseButton = new System.Windows.Forms.Button();
             this.tabActors = new System.Windows.Forms.TabControl();
             this.tabActorList = new System.Windows.Forms.TabPage();
             this.ActorGridView = new System.Windows.Forms.DataGridView();
@@ -40,16 +41,16 @@
             this.ActorSearchTextbox = new System.Windows.Forms.TextBox();
             this.ActorSearchLabel = new System.Windows.Forms.Label();
             this.tabActorDetail = new System.Windows.Forms.TabPage();
-            this.ActorIdLabel = new System.Windows.Forms.Label();
-            this.ActorIdTextbox = new System.Windows.Forms.TextBox();
-            this.ActorNameTextbox = new System.Windows.Forms.TextBox();
-            this.ActorNameLabel = new System.Windows.Forms.Label();
-            this.ActorCountryTextbox = new System.Windows.Forms.TextBox();
-            this.ActorCountryLabel = new System.Windows.Forms.Label();
+            this.ActorCancelButton = new System.Windows.Forms.Button();
+            this.ActorSaveButton = new System.Windows.Forms.Button();
             this.ActorLanguageTextbox = new System.Windows.Forms.TextBox();
             this.ActorLanguageLabel = new System.Windows.Forms.Label();
-            this.ActorSaveButton = new System.Windows.Forms.Button();
-            this.ActorCancelButton = new System.Windows.Forms.Button();
+            this.ActorCountryTextbox = new System.Windows.Forms.TextBox();
+            this.ActorCountryLabel = new System.Windows.Forms.Label();
+            this.ActorNameTextbox = new System.Windows.Forms.TextBox();
+            this.ActorNameLabel = new System.Windows.Forms.Label();
+            this.ActorIdTextbox = new System.Windows.Forms.TextBox();
+            this.ActorIdLabel = new System.Windows.Forms.Label();
             this.panelActors.SuspendLayout();
             this.tabActors.SuspendLayout();
             this.tabActorList.SuspendLayout();
@@ -70,12 +71,24 @@
             // panelActors
             // 
             this.panelActors.BackColor = System.Drawing.Color.White;
+            this.panelActors.Controls.Add(this.actorCloseButton);
             this.panelActors.Controls.Add(this.ActorTitleLabel);
             this.panelActors.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelActors.Location = new System.Drawing.Point(0, 0);
             this.panelActors.Name = "panelActors";
-            this.panelActors.Size = new System.Drawing.Size(678, 45);
+            this.panelActors.Size = new System.Drawing.Size(685, 45);
             this.panelActors.TabIndex = 1;
+            // 
+            // actorCloseButton
+            // 
+            this.actorCloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.actorCloseButton.Font = new System.Drawing.Font("Roboto", 10.28571F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.actorCloseButton.Location = new System.Drawing.Point(638, 11);
+            this.actorCloseButton.Name = "actorCloseButton";
+            this.actorCloseButton.Size = new System.Drawing.Size(32, 25);
+            this.actorCloseButton.TabIndex = 8;
+            this.actorCloseButton.Text = "X";
+            this.actorCloseButton.UseVisualStyleBackColor = true;
             // 
             // tabActors
             // 
@@ -86,7 +99,7 @@
             this.tabActors.Location = new System.Drawing.Point(0, 45);
             this.tabActors.Name = "tabActors";
             this.tabActors.SelectedIndex = 0;
-            this.tabActors.Size = new System.Drawing.Size(678, 355);
+            this.tabActors.Size = new System.Drawing.Size(685, 355);
             this.tabActors.TabIndex = 2;
             // 
             // tabActorList
@@ -101,24 +114,29 @@
             this.tabActorList.Location = new System.Drawing.Point(4, 27);
             this.tabActorList.Name = "tabActorList";
             this.tabActorList.Padding = new System.Windows.Forms.Padding(3);
-            this.tabActorList.Size = new System.Drawing.Size(670, 324);
+            this.tabActorList.Size = new System.Drawing.Size(677, 324);
             this.tabActorList.TabIndex = 0;
             this.tabActorList.Text = "Actor List";
             this.tabActorList.UseVisualStyleBackColor = true;
             // 
             // ActorGridView
             // 
+            this.ActorGridView.AllowUserToAddRows = false;
+            this.ActorGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ActorGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ActorGridView.Location = new System.Drawing.Point(20, 72);
             this.ActorGridView.Name = "ActorGridView";
             this.ActorGridView.RowHeadersWidth = 45;
             this.ActorGridView.RowTemplate.Height = 27;
-            this.ActorGridView.Size = new System.Drawing.Size(539, 233);
+            this.ActorGridView.Size = new System.Drawing.Size(558, 233);
             this.ActorGridView.TabIndex = 7;
             // 
             // ActorDeleteButton
             // 
-            this.ActorDeleteButton.Location = new System.Drawing.Point(565, 134);
+            this.ActorDeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ActorDeleteButton.Location = new System.Drawing.Point(584, 134);
             this.ActorDeleteButton.Name = "ActorDeleteButton";
             this.ActorDeleteButton.Size = new System.Drawing.Size(82, 25);
             this.ActorDeleteButton.TabIndex = 6;
@@ -127,7 +145,8 @@
             // 
             // ActorEditButton
             // 
-            this.ActorEditButton.Location = new System.Drawing.Point(565, 103);
+            this.ActorEditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ActorEditButton.Location = new System.Drawing.Point(584, 103);
             this.ActorEditButton.Name = "ActorEditButton";
             this.ActorEditButton.Size = new System.Drawing.Size(82, 25);
             this.ActorEditButton.TabIndex = 5;
@@ -136,7 +155,8 @@
             // 
             // ActorAddNewButton
             // 
-            this.ActorAddNewButton.Location = new System.Drawing.Point(565, 72);
+            this.ActorAddNewButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ActorAddNewButton.Location = new System.Drawing.Point(584, 72);
             this.ActorAddNewButton.Name = "ActorAddNewButton";
             this.ActorAddNewButton.Size = new System.Drawing.Size(82, 25);
             this.ActorAddNewButton.TabIndex = 4;
@@ -145,7 +165,8 @@
             // 
             // ActorSearchButton
             // 
-            this.ActorSearchButton.Location = new System.Drawing.Point(565, 41);
+            this.ActorSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ActorSearchButton.Location = new System.Drawing.Point(584, 41);
             this.ActorSearchButton.Name = "ActorSearchButton";
             this.ActorSearchButton.Size = new System.Drawing.Size(82, 25);
             this.ActorSearchButton.TabIndex = 3;
@@ -154,9 +175,12 @@
             // 
             // ActorSearchTextbox
             // 
+            this.ActorSearchTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ActorSearchTextbox.Location = new System.Drawing.Point(20, 40);
             this.ActorSearchTextbox.Name = "ActorSearchTextbox";
-            this.ActorSearchTextbox.Size = new System.Drawing.Size(539, 26);
+            this.ActorSearchTextbox.Size = new System.Drawing.Size(558, 26);
             this.ActorSearchTextbox.TabIndex = 2;
             // 
             // ActorSearchLabel
@@ -184,58 +208,28 @@
             this.tabActorDetail.Location = new System.Drawing.Point(4, 27);
             this.tabActorDetail.Name = "tabActorDetail";
             this.tabActorDetail.Padding = new System.Windows.Forms.Padding(3);
-            this.tabActorDetail.Size = new System.Drawing.Size(670, 324);
+            this.tabActorDetail.Size = new System.Drawing.Size(677, 324);
             this.tabActorDetail.TabIndex = 1;
             this.tabActorDetail.Text = "Actor Detail";
             this.tabActorDetail.UseVisualStyleBackColor = true;
             // 
-            // ActorIdLabel
+            // ActorCancelButton
             // 
-            this.ActorIdLabel.AutoSize = true;
-            this.ActorIdLabel.Location = new System.Drawing.Point(20, 19);
-            this.ActorIdLabel.Name = "ActorIdLabel";
-            this.ActorIdLabel.Size = new System.Drawing.Size(63, 18);
-            this.ActorIdLabel.TabIndex = 0;
-            this.ActorIdLabel.Text = "Actor ID";
+            this.ActorCancelButton.Location = new System.Drawing.Point(192, 225);
+            this.ActorCancelButton.Name = "ActorCancelButton";
+            this.ActorCancelButton.Size = new System.Drawing.Size(160, 35);
+            this.ActorCancelButton.TabIndex = 9;
+            this.ActorCancelButton.Text = "Cancel";
+            this.ActorCancelButton.UseVisualStyleBackColor = true;
             // 
-            // ActorIdTextbox
+            // ActorSaveButton
             // 
-            this.ActorIdTextbox.Location = new System.Drawing.Point(20, 40);
-            this.ActorIdTextbox.Name = "ActorIdTextbox";
-            this.ActorIdTextbox.Size = new System.Drawing.Size(160, 26);
-            this.ActorIdTextbox.TabIndex = 1;
-            // 
-            // ActorNameTextbox
-            // 
-            this.ActorNameTextbox.Location = new System.Drawing.Point(20, 104);
-            this.ActorNameTextbox.Name = "ActorNameTextbox";
-            this.ActorNameTextbox.Size = new System.Drawing.Size(160, 26);
-            this.ActorNameTextbox.TabIndex = 3;
-            // 
-            // ActorNameLabel
-            // 
-            this.ActorNameLabel.AutoSize = true;
-            this.ActorNameLabel.Location = new System.Drawing.Point(20, 83);
-            this.ActorNameLabel.Name = "ActorNameLabel";
-            this.ActorNameLabel.Size = new System.Drawing.Size(89, 18);
-            this.ActorNameLabel.TabIndex = 2;
-            this.ActorNameLabel.Text = "Actor Name";
-            // 
-            // ActorCountryTextbox
-            // 
-            this.ActorCountryTextbox.Location = new System.Drawing.Point(192, 104);
-            this.ActorCountryTextbox.Name = "ActorCountryTextbox";
-            this.ActorCountryTextbox.Size = new System.Drawing.Size(160, 26);
-            this.ActorCountryTextbox.TabIndex = 5;
-            // 
-            // ActorCountryLabel
-            // 
-            this.ActorCountryLabel.AutoSize = true;
-            this.ActorCountryLabel.Location = new System.Drawing.Point(192, 83);
-            this.ActorCountryLabel.Name = "ActorCountryLabel";
-            this.ActorCountryLabel.Size = new System.Drawing.Size(101, 18);
-            this.ActorCountryLabel.TabIndex = 4;
-            this.ActorCountryLabel.Text = "Actor Country";
+            this.ActorSaveButton.Location = new System.Drawing.Point(20, 225);
+            this.ActorSaveButton.Name = "ActorSaveButton";
+            this.ActorSaveButton.Size = new System.Drawing.Size(160, 35);
+            this.ActorSaveButton.TabIndex = 8;
+            this.ActorSaveButton.Text = "Save";
+            this.ActorSaveButton.UseVisualStyleBackColor = true;
             // 
             // ActorLanguageTextbox
             // 
@@ -253,29 +247,59 @@
             this.ActorLanguageLabel.TabIndex = 6;
             this.ActorLanguageLabel.Text = "Actor Language";
             // 
-            // ActorSaveButton
+            // ActorCountryTextbox
             // 
-            this.ActorSaveButton.Location = new System.Drawing.Point(20, 225);
-            this.ActorSaveButton.Name = "ActorSaveButton";
-            this.ActorSaveButton.Size = new System.Drawing.Size(160, 35);
-            this.ActorSaveButton.TabIndex = 8;
-            this.ActorSaveButton.Text = "Save";
-            this.ActorSaveButton.UseVisualStyleBackColor = true;
+            this.ActorCountryTextbox.Location = new System.Drawing.Point(192, 104);
+            this.ActorCountryTextbox.Name = "ActorCountryTextbox";
+            this.ActorCountryTextbox.Size = new System.Drawing.Size(160, 26);
+            this.ActorCountryTextbox.TabIndex = 5;
             // 
-            // ActorCancelButton
+            // ActorCountryLabel
             // 
-            this.ActorCancelButton.Location = new System.Drawing.Point(192, 225);
-            this.ActorCancelButton.Name = "ActorCancelButton";
-            this.ActorCancelButton.Size = new System.Drawing.Size(160, 35);
-            this.ActorCancelButton.TabIndex = 9;
-            this.ActorCancelButton.Text = "Cancel";
-            this.ActorCancelButton.UseVisualStyleBackColor = true;
+            this.ActorCountryLabel.AutoSize = true;
+            this.ActorCountryLabel.Location = new System.Drawing.Point(192, 83);
+            this.ActorCountryLabel.Name = "ActorCountryLabel";
+            this.ActorCountryLabel.Size = new System.Drawing.Size(101, 18);
+            this.ActorCountryLabel.TabIndex = 4;
+            this.ActorCountryLabel.Text = "Actor Country";
+            // 
+            // ActorNameTextbox
+            // 
+            this.ActorNameTextbox.Location = new System.Drawing.Point(20, 104);
+            this.ActorNameTextbox.Name = "ActorNameTextbox";
+            this.ActorNameTextbox.Size = new System.Drawing.Size(160, 26);
+            this.ActorNameTextbox.TabIndex = 3;
+            // 
+            // ActorNameLabel
+            // 
+            this.ActorNameLabel.AutoSize = true;
+            this.ActorNameLabel.Location = new System.Drawing.Point(20, 83);
+            this.ActorNameLabel.Name = "ActorNameLabel";
+            this.ActorNameLabel.Size = new System.Drawing.Size(89, 18);
+            this.ActorNameLabel.TabIndex = 2;
+            this.ActorNameLabel.Text = "Actor Name";
+            // 
+            // ActorIdTextbox
+            // 
+            this.ActorIdTextbox.Location = new System.Drawing.Point(20, 40);
+            this.ActorIdTextbox.Name = "ActorIdTextbox";
+            this.ActorIdTextbox.Size = new System.Drawing.Size(160, 26);
+            this.ActorIdTextbox.TabIndex = 1;
+            // 
+            // ActorIdLabel
+            // 
+            this.ActorIdLabel.AutoSize = true;
+            this.ActorIdLabel.Location = new System.Drawing.Point(20, 19);
+            this.ActorIdLabel.Name = "ActorIdLabel";
+            this.ActorIdLabel.Size = new System.Drawing.Size(63, 18);
+            this.ActorIdLabel.TabIndex = 0;
+            this.ActorIdLabel.Text = "Actor ID";
             // 
             // ActorView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 400);
+            this.ClientSize = new System.Drawing.Size(685, 400);
             this.Controls.Add(this.tabActors);
             this.Controls.Add(this.panelActors);
             this.Name = "ActorView";
@@ -316,5 +340,6 @@
         private Label ActorCountryLabel;
         private Button ActorCancelButton;
         private Button ActorSaveButton;
+        private Button actorCloseButton;
     }
 }
