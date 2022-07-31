@@ -6,9 +6,9 @@ namespace Mvp.Models
     public class Actor
     {
         private int id;
-        private string? name;
-        private string? country;
-        private string? language;
+        private string name = "";
+        private string country = "";
+        private string language = "";
 
         [DisplayName("Actor Code")]
         public int Id 
@@ -20,7 +20,7 @@ namespace Mvp.Models
         [DisplayName("Actor Name")]
         [Required(ErrorMessage = "Actor name is required.")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Actor name must be between 3 and 50 characters.")]
-        public string? Name 
+        public string Name 
         { 
             get => name; 
             set => name = value; 
@@ -30,7 +30,7 @@ namespace Mvp.Models
         [DisplayName("Actor Country")]
         [Required(ErrorMessage = "Actor country is required.")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Actor country must be between 3 and 50 characters.")]
-        public string? Country 
+        public string Country 
         { 
             get => country; 
             set => country = value; 
@@ -39,7 +39,7 @@ namespace Mvp.Models
         [DisplayName("Actor Language(s)")]
         [Required(ErrorMessage = "Actor name is required.")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Actor language must be between 3 and 50 characters.")]
-        public string? Language 
+        public string Language 
         { 
             get => language; 
             set => language = value; 

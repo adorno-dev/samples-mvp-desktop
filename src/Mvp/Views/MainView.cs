@@ -9,8 +9,8 @@
             actorsButton.Click += delegate { ShowActorView?.Invoke(this, EventArgs.Empty); };
         }
 
-        public event EventHandler ShowActorView;
-        public event EventHandler ShowOwnerView;
-        public event EventHandler ShowMovieView;
+        public event EventHandler? ShowActorView;
+        // public event EventHandler? ShowOwnerView;
+        // public event EventHandler? ShowMovieView;
     }
 }

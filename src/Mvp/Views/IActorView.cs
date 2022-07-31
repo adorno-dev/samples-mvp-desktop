@@ -3,7 +3,7 @@
     public interface IActorView
     {
         string Id { get; set; }
-        string Name { get; set; }
+        string FullName { get; set; }
         string Country { get; set; }
         string Language { get; set; }
 

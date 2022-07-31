@@ -13,17 +13,44 @@ namespace Mvp.Models.Repositories
 
         public void Add(Actor model)
         {
-            throw new NotImplementedException();
+            using var connection = new SqlConnection(connectionString);
+            using var command = new SqlCommand();
+
+            connection.Open();
+            command.CommandText = "INSERT INTO Actors VALUES (@name, @country, @language)";
+            command.Connection = connection;
+            command.Parameters.Add("@name", SqlDbType.NVarChar).Value = model.Name;
+            command.Parameters.Add("@country", SqlDbType.NVarChar).Value = model.Country;
+            command.Parameters.Add("@language", SqlDbType.NVarChar).Value = model.Language;
+            command.ExecuteNonQuery();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using var connection = new SqlConnection(connectionString);
+            using var command = new SqlCommand();
+
+            connection.Open();
+            command.CommandText = "DELETE FROM Actors WHERE Id=@id";
+            command.Connection = connection;
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            command.ExecuteNonQuery();
         }
 
         public void Edit(Actor model)
         {
-            throw new NotImplementedException();
+            using var connection = new SqlConnection(connectionString);
+            using var command = new SqlCommand();
+
+            connection.Open();
+            command.CommandText = "UPDATE Actors SET Name=@name, Country=@country, Language=@language WHERE Id = @id";
+            command.Connection = connection;
+
+            command.Parameters.Add("@name", SqlDbType.NVarChar).Value = model.Name;
+            command.Parameters.Add("@country", SqlDbType.NVarChar).Value = model.Country;
+            command.Parameters.Add("@language", SqlDbType.NVarChar).Value = model.Language;
+            command.Parameters.Add("@id", SqlDbType.Int).Value = model.Id;
+            command.ExecuteNonQuery();
         }
 
         public IEnumerable<Actor> GetAll()

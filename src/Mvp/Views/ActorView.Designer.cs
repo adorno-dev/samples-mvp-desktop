@@ -125,6 +125,7 @@
             this.ActorGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ActorGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ActorGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ActorGridView.Location = new System.Drawing.Point(20, 72);
             this.ActorGridView.Name = "ActorGridView";
@@ -281,10 +282,12 @@
             // 
             // ActorIdTextbox
             // 
+            this.ActorIdTextbox.Enabled = false;
             this.ActorIdTextbox.Location = new System.Drawing.Point(20, 40);
             this.ActorIdTextbox.Name = "ActorIdTextbox";
             this.ActorIdTextbox.Size = new System.Drawing.Size(160, 26);
             this.ActorIdTextbox.TabIndex = 1;
+            this.ActorIdTextbox.Text = "0";
             // 
             // ActorIdLabel
             // 

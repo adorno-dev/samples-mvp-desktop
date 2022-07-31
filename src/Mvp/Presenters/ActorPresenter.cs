@@ -1,5 +1,6 @@
 using Mvp.Models;
 using Mvp.Models.Repositories.Contracts;
+using Mvp.Validators;
 using Mvp.Views;
 
 namespace Mvp.Presenters
@@ -16,27 +17,87 @@ namespace Mvp.Presenters
         #region + Private Methods
         private void CancelAction(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            ClearViewFields();
         }
 
         private void SaveActor(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var actor = new Actor();
+            
+            actor.Id = Convert.ToInt32(view.Id);
+            actor.Name = view.FullName;
+            actor.Country = view.Country;
+            actor.Language = view.Language;
+
+            try
+            {
+                new ModelDataValidation().Validate(actor);
+
+                if (view.IsEditing)
+                {
+                    repository.Edit(actor);
+                    view.Message = "Actor edited successfully";
+                }
+                else
+                {
+                    repository.Add(actor);
+                    view.Message = "Actor was created successfully";
+                }
+
+                view.IsSuccessfully = true;
+
+                LoadAllActorList();
+                ClearViewFields();
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessfully = false;
+                view.Message = ex.Message;
+            }
+        }
+
+        private void ClearViewFields()
+        {
+            view.Id = "0";
+            view.FullName = "";
+            view.Country = "";
+            view.Language = "";
         }
 
         private void DeleteSelectedActor(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var actor = (Actor) actorsBindingSource.Current;
+                
+                repository.Delete(actor.Id);
+
+                view.IsSuccessfully = true;
+                view.Message = "Actor deleted successfully.";
+
+                LoadAllActorList();
+            }
+            catch
+            {
+                view.IsSuccessfully = false;
+                view.Message = "An error ocurred, could not delete actor.";
+            }
         }
 
         private void LoadSelectedActorToEdit(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var actor = (Actor) actorsBindingSource.Current;
+
+            view.Id = actor.Id.ToString();
+            view.FullName = actor.Name;
+            view.Country = actor.Country;
+            view.Language = actor.Language;
+            view.IsEditing = true;
         }
 
         private void AddNewActor(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            view.IsEditing = false;
         }
 
         private void SearchActor(object? sender, EventArgs e)
